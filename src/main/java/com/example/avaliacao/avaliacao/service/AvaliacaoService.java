@@ -34,9 +34,9 @@ public class AvaliacaoService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Filme não encontrado");
         }
 
-        // if (!visualizacaoService.verificaClienteAssistiu(jwtToken)) {
-        //     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cliente não assistiu o filme");
-        // }
+        if (!visualizacaoService.verificaClienteAssistiu(jwtToken)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Cliente não assistiu o filme");
+        }
 
         avaliacao.setId(UUID.randomUUID().toString());
 
